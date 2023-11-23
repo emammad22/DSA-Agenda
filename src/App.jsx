@@ -3,6 +3,7 @@ import Header from "./layout/Header";
 import Module from "./components/Module";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
+import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   const initialData = [
@@ -21,30 +22,35 @@ export default function App() {
     },
   ];
 
-
-  const [data, setData] = useState([]);
   const [selected, setSelected] = useState("");
   const [startHour, setStartHour] = useState("");
   const [endHour, setEndHour] = useState("");
   const [topic, setTopic] = useState("");
 
   const [modules, setModules] = useState([]);
+  const [subjects, setSubjects] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [exist, setExist] = useState({});
+  const [inputValues, setInputValues] = useState([]);
 
   const formData = [
-    modules.map((module)=>{
-       return {
-        header : module,
-        subject : []
-       }
-    })
-  ]
+    modules.map((module) => {
+      return {
+        header: module,
+        subject: [
+          subjects.filter((subject) => {
+            return subject.header === module ? subject : null;
+          }),
+        ],
+      };
+    }),
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target);
     console.log("selected", selected);
+    console.log("formdata", formData);
   };
 
   const handleToggle = () => {
@@ -86,9 +92,22 @@ export default function App() {
     return false;
   };
 
-  const handleTopic = ()=>{
+  const handleChangeInput = (e, id, inputType) => {
+    const { value } = e.target;
+    setInputValues((prevInputValues) => {
+      const newInputs = prevInputValues.map((input) => {
+        input?.id == id ? { ...input, [inputType]: value } : input;
+      });
+      return newInputs;
+    });
+  };
 
-  }
+  const handleTopic = () => {
+    setInputValues([
+      ...inputValues,
+      { id: uuidv4(), startHour: "", endHour: "", topicName: "" },
+    ]);
+  };
 
   return (
     <>
@@ -163,18 +182,22 @@ export default function App() {
                   className="select-module relative flex w-full py-[5px] px-[10px] border-[1px] border-solid rounded-[7px]"
                   onClick={handleToggle}
                 >
-                  <p className="basis-[95%]">Phyton</p>
+                  <p className="basis-[95%]">
+                    {modules.length > 0
+                      ? modules[modules.length - 1]
+                      : "Choose one of them"}
+                  </p>
                   <button type="button">
                     {!toggle ? <IoIosArrowDown /> : <IoIosArrowUp />}
                   </button>
                   {toggle ? (
-                    <div className="select-sub absolute top-9 w-full bg-[#eaeaea] left-0 rounded-lg">
+                    <div className="select-sub z-10 absolute top-9 w-full bg-[#eaeaea] left-0 rounded-lg">
                       <ul>
                         <li
                           className="select-item px-2 py-3 cursor-pointer text-[#F7941E] flex justify-between"
                           onClick={(e) => addModules(e.target.innerText)}
                         >
-                          Phyton{" "}
+                          Phyton
                           {exist?.Phyton ? (
                             <TiTick className="text-[20px]" />
                           ) : null}
@@ -183,7 +206,7 @@ export default function App() {
                           className="select-item px-2 py-3 cursor-pointer text-[#F7941E] flex justify-between"
                           onClick={(e) => addModules(e.target.innerText)}
                         >
-                          Big Data{" "}
+                          Big Data
                           {exist?.["Big Data"] ? (
                             <TiTick className="text-[20px]" />
                           ) : null}
@@ -192,7 +215,7 @@ export default function App() {
                           className="select-item px-2 py-3 cursor-pointer text-[#F7941E] flex justify-between"
                           onClick={(e) => addModules(e.target.innerText)}
                         >
-                          PHP{" "}
+                          PHP
                           {exist?.PHP ? (
                             <TiTick className="text-[20px]" />
                           ) : null}
@@ -208,42 +231,55 @@ export default function App() {
                   return (
                     <div
                       key={index}
-                      className="module flex flex-col gap-[20px]"
+                      className="module flex flex-col gap-[20px] animate__animated animate__fadeIn"
                     >
                       <h2 className="text-[20px] font-bold self-center">
                         Module : {module}
                       </h2>
-                      <div className="topic-container flex gap-3 items-center">
-                        <h3 className="text-[23px]">1.</h3>
-                        <div className="hour-topic flex flex-col gap-[14px] w-full">
-                          <div className="hour-interval flex gap-[10px]">
-                            <input
-                              placeholder="Start time..."
-                              type="text"
-                              className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px]"
-                              value={startHour}
-                              onChange={(e) => setStartHour(e.target.value)}
-                            />
-                            <input
-                              placeholder="End time..."
-                              type="text"
-                              className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px]"
-                              value={endHour}
-                              onChange={(e) => setEndHour(e.target.value)}
-                            />
+                      {inputValues?.map((input) => {
+                        return (
+                          <div
+                            key={input?.id}
+                            className="topic-container flex gap-3 items-center"
+                          >
+                            <h3 className="text-[23px]">1.</h3>
+                            <div className="hour-topic flex flex-col gap-[14px] w-full">
+                              <div className="hour-interval flex gap-[10px]">
+                                <input
+                                  placeholder="Start time..."
+                                  type="text"
+                                  className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px]"
+                                  value={input?.startHour}
+                                  onChange={(e) =>
+                                    handleChangeInput(e, input.id, "startHour")
+                                  }
+                                  name="startHour"
+                                />
+                                <input
+                                  placeholder="End time..."
+                                  type="text"
+                                  className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px]"
+                                  value={input?.endHour}
+                                  onChange={(e) => handleChangeInput(e, input.id, 'endHour')}
+                                  name="endHour"
+                                />
+                              </div>
+                              <div className="topic">
+                                <input
+                                  placeholder="Enter topic name..."
+                                  type="text"
+                                  className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px] w-full"
+                                  value={input?.topicName}
+                                  onChange={(e) => handleChangeInput(e, input.id, 'topicName')}
+                                  name="topic"
+                                />
+                              </div>
+                            </div>
                           </div>
-                          <div className="topic">
-                            <input
-                              placeholder="Enter topic name..."
-                              type="text"
-                              className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px] w-full"
-                              value={topic}
-                              onChange={(e) => setTopic(e.target.value)}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="topic-container flex gap-3 items-center">
+                        );
+                      })}
+
+                      {/* <div className="topic-container flex gap-3 items-center">
                         <h3 className="text-[23px]">2.</h3>
                         <div className="hour-topic flex flex-col gap-[14px] w-full">
                           <div className="hour-interval flex gap-[10px]">
@@ -266,12 +302,14 @@ export default function App() {
                             />
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="topic-add text-center">
                         <button
                           className="add-btn text-white bg-[#F9A820] px-5 py-3 rounded-lg"
                           type="button"
-                          onClick={handleTopic}
+                          onClick={() => {
+                            handleTopic(module);
+                          }}
                         >
                           Add new topic
                         </button>
@@ -280,7 +318,11 @@ export default function App() {
                   );
                 })}
               </form>
-              <button type="submit" onClick={handleSubmit} className='py-4 px-5 rounded-lg bg-[#909398] text-[#eaeaea]'>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="py-4 px-5 rounded-lg bg-[#909398] text-[#eaeaea]"
+              >
                 Submit
               </button>
             </div>
@@ -289,19 +331,4 @@ export default function App() {
       </div>
     </>
   );
-}
-
-// comments
-
-{
-  /* <select
-                    className="w-full py-[5px] px-[10px] border-[1px] border-solid rounded-[7px]"
-                    value={selected}
-                    // multiple
-                    onChange={handleSelectChange}
-                  >
-                    <option value="Phyton">Phyton</option>
-                    <option value="R">R</option>
-                    <option value="Big Data">Big Data</option>
-                  </select> */
 }
