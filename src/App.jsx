@@ -4,41 +4,18 @@ import Module from "./components/Module";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { v4 as uuidv4 } from "uuid";
+import agendaBack from './assets/agenda.png'
 
 export default function App() {
-  const initialData = [
-    {
-      header: "Phyton",
-      subject: [
-        {
-          time: "10:00 - 12:00",
-          title: "Object Oriented Prog. Inheritance",
-        },
-        {
-          time: "13:00 - 15:00",
-          title: "Polymorphism",
-        },
-      ],
-    },
-  ];
-
-  const [selected, setSelected] = useState("");
-
   const [modules, setModules] = useState([]);
-  const [subjects, setSubjects] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [exist, setExist] = useState({});
-  const [inputValues, setInputValues] = useState([]);
 
   const formData = [
     modules?.map((module) => {
       return {
-        header: module,
-        subject: [
-          subjects.filter((subject) => {
-            return subject.header === module ? subject : null;
-          }),
-        ],
+        header: module.moduleName,
+        subject: module.inputs,
       };
     }),
   ];
@@ -46,7 +23,6 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target);
-    console.log("selected", selected);
     console.log("formdata", formData);
   };
 
@@ -106,7 +82,7 @@ export default function App() {
 
   const handleChangeInput = (e, moduleId, id, inputType) => {
     const { value } = e.target;
-  
+
     setModules((prevModules) =>
       prevModules.map((module) => {
         if (module.id === moduleId) {
@@ -140,7 +116,7 @@ export default function App() {
             ...module,
             inputs: [
               ...module.inputs,
-              { id: uuidv4(), startHour: '', endHour: '', topicName: '' },
+              { id: uuidv4(), startHour: "", endHour: "", topicName: "" },
             ],
           };
         }
@@ -148,7 +124,6 @@ export default function App() {
       })
     );
   };
-  
 
   return (
     <>
@@ -156,7 +131,7 @@ export default function App() {
       <div className="weekly-agenda">
         <div className="container m-auto">
           <div className="weekly-inner flex py-[30px] justify-between">
-            <div className="week bg-slate-100 h-fit">
+            <div className="week h-fit basis-[50%]">
               <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
                 WEEK 11
               </h2>
@@ -164,50 +139,43 @@ export default function App() {
                 <div className="day-head text-center font-bold text-[20px]">
                   03<sup>rd</sup> of June
                 </div>
+
                 <div className="table-container">
-                  <div className="tables flex">
-                    <ul className="module-container basis-[94%]">
-                      <li className="table-item">
-                        <div className="flex gap-[20px]">
-                          <p className="hour-interval bg-slate-400 px-[10px] py-[6px]">
-                            10:00 - 10:45
-                          </p>
-                          <p className="topic-name bg-slate-400 px-[10px] py-[6px]">
-                            Working with image data: channels, matrices,
-                            dimenstions
-                          </p>
-                        </div>
-                      </li>
-                      <li className="table-item">
-                        <div className="flex gap-[20px]">
-                          <p className="hour-interval bg-slate-300 px-[10px] py-[6px]">
-                            10:00 - 10:45
-                          </p>
-                          <p className="topic-name bg-slate-300 px-[10px] py-[6px]">
-                            Working with image data: channels, matrices,
-                            dimenstions
-                          </p>
-                        </div>
-                      </li>
-                      <li className="table-item">
-                        <div className="flex gap-[20px]">
-                          <p className="hour-interval bg-slate-400 px-[10px] py-[6px]">
-                            10:00 - 10:45
-                          </p>
-                          <p className="topic-name bg-slate-400 px-[10px] py-[6px]">
-                            Working with image data: channels, matrices,
-                            dimenstions
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                    <div className="module-name bg-[#F9A820] flex items-center basis-[5%]">
-                      <p className="name rotate-90 w-[50.5px] text-center">
-                        Big Data
-                      </p>
-                    </div>
-                  </div>
-                  <Module />
+                  {formData?.map((datas) => {
+                    return (
+                      <div className="tables flex">
+                        {datas?.map((module) => {
+                          return (
+                            <>
+                              <ul className="module-container basis-[94%]">
+                                {module.subject?.map((input) => {
+                                  return (
+                                    <li className="table-item basis-[100%]">
+                                      <div className="flex gap-[20px] justify-between">
+                                        <p className="hour-interval bg-slate-400 px-[10px] py-[6px] basis-[25%] flex items-center">
+                                          {input.startHour} - {input.endHour}
+                                        </p>
+                                        <p className="topic-name bg-slate-400 px-[10px] py-[6px] basis-[75%]">
+                                         {input.topicName}
+                                        </p>
+                                      </div>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                              <div className="module-name bg-[#F9A820] flex items-center basis-[5%]">
+                                <p className="name rotate-90 w-[50.5px] text-center">
+                                  {datas.header} Phyton
+                                </p>
+                              </div>
+                            </>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
+
+                  {/* <Module /> */}
                 </div>
               </div>
             </div>

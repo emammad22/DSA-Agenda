@@ -6,4 +6,10 @@
   *{
     font-family: 'Lato', sans-serif;
   }
+
+  .week{
+    background-image: url(./assets/agenda.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
