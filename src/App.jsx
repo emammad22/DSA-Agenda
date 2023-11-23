@@ -23,9 +23,6 @@ export default function App() {
   ];
 
   const [selected, setSelected] = useState("");
-  const [startHour, setStartHour] = useState("");
-  const [endHour, setEndHour] = useState("");
-  const [topic, setTopic] = useState("");
 
   const [modules, setModules] = useState([]);
   const [subjects, setSubjects] = useState([]);
@@ -34,7 +31,7 @@ export default function App() {
   const [inputValues, setInputValues] = useState([]);
 
   const formData = [
-    modules.map((module) => {
+    modules?.map((module) => {
       return {
         header: module,
         subject: [
@@ -66,24 +63,28 @@ export default function App() {
         [moduleName]: false,
       });
     } else {
-      moduleList = [...modules, moduleName];
+      moduleList = [
+        ...modules,
+        { id: uuidv4(), moduleName: moduleName, inputs: [] },
+      ];
       setExist({
         ...exist,
         [moduleName]: true,
       });
     }
     setModules(moduleList);
+    console.log("modulelist", modules);
   };
 
   const removeModule = (moduleName, modules) => {
     return modules.filter((module) => {
-      return module != moduleName;
+      return module.moduleName != moduleName;
     });
   };
 
   const checkExisting = (target, list) => {
     for (const el of list) {
-      if (target === el) {
+      if (target === el.moduleName) {
         return true;
       } else {
         continue;
@@ -92,22 +93,62 @@ export default function App() {
     return false;
   };
 
-  const handleChangeInput = (e, id, inputType) => {
+  // const handleChangeInput = (e, moduleId, id, inputType) => {
+  //   const { value } = e.target;
+  //   modules.map((module) => {
+  //     module.id === moduleId
+  //       ? module.inputs.map((input) => {
+  //           return input.id === id ? { ...input, [inputType]: value } : input;
+  //         })
+  //       : module;
+  //   });
+  // };
+
+  const handleChangeInput = (e, moduleId, id, inputType) => {
     const { value } = e.target;
-    setInputValues((prevInputValues) => {
-      const newInputs = prevInputValues.map((input) => {
-        input?.id == id ? { ...input, [inputType]: value } : input;
-      });
-      return newInputs;
-    });
+  
+    setModules((prevModules) =>
+      prevModules.map((module) => {
+        if (module.id === moduleId) {
+          module.inputs = module.inputs.map((input) =>
+            input.id === id ? { ...input, [inputType]: value } : input
+          );
+        }
+        return module;
+      })
+    );
   };
 
-  const handleTopic = () => {
-    setInputValues([
-      ...inputValues,
-      { id: uuidv4(), startHour: "", endHour: "", topicName: "" },
-    ]);
+  // const handleTopic = (moduleId) => {
+  //   modules.map((module) => {
+  //     module.id === moduleId
+  //       ? module.inputs.push({
+  //           id: uuidv4(),
+  //           startHour: "",
+  //           endHour: "",
+  //           topicName: "",
+  //         })
+  //       : null;
+  //   });
+  // };
+
+  const handleTopic = (moduleId) => {
+    setModules((prevModules) =>
+      prevModules.map((module) => {
+        if (module.id === moduleId) {
+          return {
+            ...module,
+            inputs: [
+              ...module.inputs,
+              { id: uuidv4(), startHour: '', endHour: '', topicName: '' },
+            ],
+          };
+        }
+        return module;
+      })
+    );
   };
+  
 
   return (
     <>
@@ -184,7 +225,7 @@ export default function App() {
                 >
                   <p className="basis-[95%]">
                     {modules.length > 0
-                      ? modules[modules.length - 1]
+                      ? modules[modules.length - 1].moduleName
                       : "Choose one of them"}
                   </p>
                   <button type="button">
@@ -227,22 +268,22 @@ export default function App() {
                     </div>
                   ) : null}
                 </div>
-                {modules?.map((module, index) => {
+                {modules?.map((module) => {
                   return (
                     <div
-                      key={index}
+                      key={module.id}
                       className="module flex flex-col gap-[20px] animate__animated animate__fadeIn"
                     >
                       <h2 className="text-[20px] font-bold self-center">
-                        Module : {module}
+                        Module : {module.moduleName}
                       </h2>
-                      {inputValues?.map((input) => {
+                      {module.inputs?.map((input, index) => {
                         return (
                           <div
                             key={input?.id}
                             className="topic-container flex gap-3 items-center"
                           >
-                            <h3 className="text-[23px]">1.</h3>
+                            <h3 className="text-[23px]">{index + 1}.</h3>
                             <div className="hour-topic flex flex-col gap-[14px] w-full">
                               <div className="hour-interval flex gap-[10px]">
                                 <input
@@ -251,7 +292,12 @@ export default function App() {
                                   className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px]"
                                   value={input?.startHour}
                                   onChange={(e) =>
-                                    handleChangeInput(e, input.id, "startHour")
+                                    handleChangeInput(
+                                      e,
+                                      module.id,
+                                      input.id,
+                                      "startHour"
+                                    )
                                   }
                                   name="startHour"
                                 />
@@ -260,7 +306,14 @@ export default function App() {
                                   type="text"
                                   className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px]"
                                   value={input?.endHour}
-                                  onChange={(e) => handleChangeInput(e, input.id, 'endHour')}
+                                  onChange={(e) =>
+                                    handleChangeInput(
+                                      e,
+                                      module.id,
+                                      input.id,
+                                      "endHour"
+                                    )
+                                  }
                                   name="endHour"
                                 />
                               </div>
@@ -270,7 +323,14 @@ export default function App() {
                                   type="text"
                                   className="border-[1px] border-solid rounded-[7px] px-[5px] py-[8px] w-full"
                                   value={input?.topicName}
-                                  onChange={(e) => handleChangeInput(e, input.id, 'topicName')}
+                                  onChange={(e) =>
+                                    handleChangeInput(
+                                      e,
+                                      module.id,
+                                      input.id,
+                                      "topicName"
+                                    )
+                                  }
                                   name="topic"
                                 />
                               </div>
@@ -308,7 +368,7 @@ export default function App() {
                           className="add-btn text-white bg-[#F9A820] px-5 py-3 rounded-lg"
                           type="button"
                           onClick={() => {
-                            handleTopic(module);
+                            handleTopic(module.id);
                           }}
                         >
                           Add new topic
