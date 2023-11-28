@@ -4,6 +4,7 @@ import Module from "./components/Module";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { v4 as uuidv4 } from "uuid";
+import Day from "./components/Day";
 
 export default function App() {
   const [modules, setModules] = useState([]);
@@ -14,7 +15,7 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target);
-    console.log("formdata", formData);
+    console.log("formdata", dayForms);
   };
 
   const handleToggle = (elem) => {
@@ -99,7 +100,6 @@ export default function App() {
       return updatedDayForms;
     });
   };
-  
 
   const removeModule = (moduleName, modules, formId) => {
     return modules.filter((module) => {
@@ -134,10 +134,9 @@ export default function App() {
   //   );
   // };
 
-
   const handleChangeInput = (e, formId, moduleId, id, inputType) => {
     const { value } = e.target;
-  
+
     setDayForms((prevDayForms) => {
       const updatedDayForms = prevDayForms.map((form) => {
         if (form.formId === formId) {
@@ -157,7 +156,6 @@ export default function App() {
       return updatedDayForms;
     });
   };
-  
 
   // const handleTopic = (moduleId, formId) => {
   //   setModules((prevModules) => {
@@ -201,29 +199,8 @@ export default function App() {
       return updatedDayForms;
     });
   };
-  
 
-  const helpHandle = (updatedModules, formId) => {
-    setDayForms((prevDayForms) => {
-      const updatedDayForms = prevDayForms.map((form) => {
-        if (form.formId === formId) {
-          return {
-            ...form,
-            datas: updatedModules
-              .filter((module) => module.formId === formId)
-              .map((module) => ({
-                id: module.id,
-                moduleName: module.moduleName,
-                inputs: module.inputs,
-              })),
-          };
-        }
-        return form;
-      });
-      return updatedDayForms;
-    });
-  };
-  
+ 
 
   return (
     <>
@@ -235,56 +212,11 @@ export default function App() {
               <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
                 WEEK 11
               </h2>
-              <div className="day px-[20px] py-[20px] basis-[45%] flex flex-col gap-6">
-                <div className="day-head text-center font-bold text-[20px]">
-                  <input
-                    placeholder="Enter date"
-                    className="rounded-[7px] text-center font-normal"
-                  />
-                  {/* 03<sup>rd</sup> of June */}
-                </div>
-
-                <div className="table-container">
-                  {dayForms?.map((datas) => {
-                    {
-                      console.log("formdata", datas);
-                    }
-                    return (
-                      <div className="tables flex flex-col">
-                        {/* {datas?.datas.map((module) => {
-                          return (
-                            <div className="flex">
-                              <ul className="module-container basis-[94%]">
-                                {module.subject?.map((input) => {
-                                  return (
-                                    <li className="table-item basis-[100%] even:bg-white">
-                                      <div className="flex gap-[20px] justify-between">
-                                        <p className="hour-interval bg-slate-400 px-[10px] py-[6px] basis-[25%] flex items-center">
-                                          {input.startHour} - {input.endHour}
-                                        </p>
-                                        <p className="topic-name bg-slate-400 px-[10px] py-[6px] basis-[75%]">
-                                          {input.topicName}
-                                        </p>
-                                      </div>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                              <div className="module-name bg-[#F9A820] flex items-center basis-[5%]">
-                                <p className="name rotate-90 w-[50.5px] text-center">
-                                  {module.header}
-                                </p>
-                              </div>
-                            </div>
-                          );
-                        })} */}
-                      </div>
-                    );
-                  })}
-
-                  {/* <Module /> */}
-                </div>
-              </div>
+              {dayForms.map((day) => {
+                return (
+                  <Day day={day} />
+                );
+              })}
             </div>
             <div className="agenda-form basis-[45%] flex flex-col gap-6">
               <h2 className="text-[#1F3751] text-[30px] text-center font-bold">
@@ -300,7 +232,7 @@ export default function App() {
               </div>
               {dayForms?.map((form, index) => {
                 {
-                  console.log('formmmmdataa', dayForms)
+                  console.log("formmmmdataa", dayForms);
                 }
                 return (
                   <div className="day-form flex flex-col gap-[15px]">
