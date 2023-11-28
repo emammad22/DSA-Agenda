@@ -1,24 +1,9 @@
 import React from "react";
 
 export default function Module({ module, modIndex }) {
-
-  
   const handleListItem = (modIndex, inputIndex) => {
     if (modIndex === 0 && inputIndex === 2) {
-      return (
-        <>
-          <li className="table-item basis-[100%]">
-            <div className="flex gap-[20px] justify-between">
-              <p className="minute bg-slate-200 px-[10px] py-[6px] basis-[25%] flex items-center">
-                12:35-13:05
-              </p>
-              <p className="topic-name bg-slate-200 px-[10px] py-[6px] basis-[75%]">
-                Lunch
-              </p>
-            </div>
-          </li>
-        </>
-      );
+      return <></>;
     } else if (modIndex === 1 && inputIndex == 2) {
       return <></>;
     } else {
