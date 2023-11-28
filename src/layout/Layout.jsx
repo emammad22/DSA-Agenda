@@ -6,16 +6,16 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main>
+      <main className="h-[100vh]">
         <Outlet/>
       </main>
-      {/* <footer className="footer">
-        <div className="container">
-            <div className="footer-inner">
+      <footer className="footer">
+        <div className="container m-auto">
+            <div className="footer-inner flex justify-center">
                 Copyright 2023 by Mammadov.E.E  
             </div>
         </div>
-      </footer> */}
+      </footer>
     </>
   );
 }
