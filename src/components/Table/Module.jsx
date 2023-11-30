@@ -27,7 +27,7 @@ export default function Module({ module, modIndex }) {
   return (
     <>
       <div className="flex">
-        <ul className="module-container basis-[94%]">
+        <ul className="module-container basis-[80%] self-center">
           {module.inputs?.map((input, index) => {
             return (
               <>
@@ -47,7 +47,7 @@ export default function Module({ module, modIndex }) {
           })}
         </ul>
         <div className="module-name bg-[#F9A820] flex items-center basis-[5%]">
-          <p className="name rotate-90 w-[50.5px] text-center">
+          <p className="name rotate-90 w-[60.5px] text-center">
             {module.moduleName}
           </p>
         </div>

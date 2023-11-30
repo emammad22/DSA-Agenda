@@ -203,7 +203,7 @@ export default function HomePage() {
     <div className="weekly-agenda">
       <div className="container m-auto">
         <div className="weekly-inner flex py-[30px] justify-between">
-          <div className="week h-fit basis-[50%]">
+          <div className="week h-fit basis-[50%] flex flex-col items-center justify-center">
             <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
               WEEK 11
             </h2>
