@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main className="h-[100vh]">
+      <main className="">
         <Outlet/>
       </main>
       <footer className="footer">

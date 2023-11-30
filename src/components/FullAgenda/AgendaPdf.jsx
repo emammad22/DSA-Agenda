@@ -8,7 +8,7 @@ export default function AgendaPdf() {
 
   const downloadPdf = ()=>{
     const pdf = document.getElementById('agenda')
-    html2canvas(pdf).then((canvas)=>{
+    html2canvas(pdf, {scale : 2}).then((canvas)=>{
       const imgData = canvas.toDataURL('img/png');
       const doc = new jsPDF('p','mm', 'a4');
       const componentWidth = doc.internal.pageSize.getWidth();
@@ -16,6 +16,8 @@ export default function AgendaPdf() {
       doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight)
       doc.save('agenda.pdf')
     })
+
+    localStorage.removeItem('formData')
   }
 
   useEffect(() => {
@@ -25,8 +27,8 @@ export default function AgendaPdf() {
 
   return (
     <div className="container m-auto mt-6 flex flex-col gap-[20px]">
-      <div className="flex flex-col items-center" id="agenda">
-        <div className="week w-[700px]">
+      <div className="flex flex-col items-center">
+        <div className="week w-[700px]" id="agenda">
           <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
             WEEK 11
           </h2>

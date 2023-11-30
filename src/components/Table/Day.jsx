@@ -23,7 +23,7 @@ export default function Day({ day }) {
                       <p className="basis-[30.3%] px-[10px] py-[6px] bg-slate-200">
                         12:35-13:05
                       </p>
-                      <p className="basis-[75%] px-[10px] py-[6px] bg-slate-200">
+                      <p className="basis-[95%] px-[10px] py-[6px] bg-slate-200">
                         Lunch Time
                       </p>
                     </div>
