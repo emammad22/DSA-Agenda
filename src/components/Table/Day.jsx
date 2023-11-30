@@ -13,7 +13,28 @@ export default function Day({ day }) {
 
       <div className="table-container bg-white px-7 py-7">
         <div className="tables flex flex-col">
-          {day.datas?.map((module, modIndex) => {
+          <Module />
+          <div className="lunch flex basis-[95%]">
+            <div className="flex basis-[90%] gap-[20px]">
+              <p className="basis-[21.5%] px-[10px] py-[6px] bg-slate-200">
+                12:35-13:05
+              </p>
+              <p className="basis-[64%] px-[10px] py-[6px] bg-slate-200">
+                Lunch Time
+              </p>
+            </div>
+          </div>
+          <Module />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+// Dynamic version of day
+{/* {day.datas?.map((module, modIndex) => {
             return (
               <>
                 <Module key={modIndex} module={module} modIndex={modIndex} />
@@ -31,11 +52,4 @@ export default function Day({ day }) {
                 ) : null}
               </>
             );
-          })}
-        </div>
-
-        {/* <Module /> */}
-      </div>
-    </div>
-  );
-}
+          })} */}

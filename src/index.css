@@ -2,14 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  *{
-    font-family: 'Lato', sans-serif;
+@layer base {
+  * {
+    font-family: "Lato", sans-serif;
   }
 
-  .week{
+  .week {
     background-image: url(./assets/agenda.png);
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+
+#myTextarea{
+  white-space: pre-wrap !important;
+}
+
+@media screen, print {
+  #myTextarea {
+    height: auto !important;
+    max-height: none !important;
+    white-space: pre-wrap !important;
   }
 }
