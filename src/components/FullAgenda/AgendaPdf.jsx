@@ -14,11 +14,11 @@ export default function AgendaPdf() {
       const doc = new jsPDF({
         orientation: "portrait",
         unit: "mm",
-        format: [910, 1097], // Width x Height
+        format: [710, 797], // Width x Height
       });
       const componentWidth = doc.internal.pageSize.getWidth();
       const componentHeight = doc.internal.pageSize.getHeight();
-      doc.addImage(imgData, "PNG", 30, 30, 490, componentHeight - 200);
+      doc.addImage(imgData, "PNG", 200, 50, 390, componentHeight - 200);
       doc.save("agenda.pdf");
     });
 
@@ -45,7 +45,7 @@ export default function AgendaPdf() {
               return <Day day={day} />;
             })}
           </div>
-          <div className="w-[900px] bg-[#16c9ba] flex flex-col gap-5 items-center py-5">
+          <div className="w-[900px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5">
             <h2>
               <input
                 type="text"

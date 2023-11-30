@@ -3,18 +3,21 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { v4 as uuidv4 } from "uuid";
 import Day from "../components/Table/Day";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [modules, setModules] = useState([]);
   const [toggle, setToggle] = useState({});
   const [exist, setExist] = useState({});
   const [dayForms, setDayForms] = useState([]);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target);
     localStorage.setItem("formData", JSON.stringify(dayForms));
     console.log("formdata", dayForms);
+    navigate('/week-agenda')
   };
 
   const handleToggle = (elem) => {
