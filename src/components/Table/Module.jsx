@@ -25,9 +25,6 @@ export default function Module({ module, modIndex }) {
   //   }
   // };
 
-
-
-
   // document.getElementById("myTextarea").addEventListener("input", function () {
   //   var inputText = this.value.replace(/\n/g, "<br>");
   //   document.getElementById("displayArea").innerHTML = inputText;
@@ -40,67 +37,98 @@ export default function Module({ module, modIndex }) {
           <li className="table-item basis-[100%]">
             <div className="flex gap-[20px] justify-between">
               <p className="hour-interval bg-slate-100 px-[10px] py-[6px] basis-[25%] flex items-center">
-                10:00-10:45
-              </p>
-              <p className="topic-name bg-slate-100 px-[10px] py-[6px] basis-[75%]">
-                Object Oriented Programming
-              </p>
-            </div>
-          </li>
-          <li className="table-item basis-[100%]">
-            <div className="flex gap-[20px] justify-between">
-              <p className="hour-interval bg-slate-200 px-[10px] py-[6px] basis-[25%] flex items-center">
-                10:00-10:45
-              </p>
-              <p className="topic-name bg-slate-200 px-[10px] py-[6px] basis-[75%]">
-                Object Oriented Programming
-              </p>
-            </div>
-          </li>
-          <li className="table-item basis-[100%]">
-            <div className="flex gap-[20px] justify-between">
-              <p className="hour-interval bg-slate-100 px-[10px] py-[6px] basis-[25%] flex items-center">
-                10:00-10:45
-              </p>
-              <p className="topic-name bg-slate-100 px-[10px] py-[6px] basis-[75%]">
-                Object Oriented Programming
-              </p>
-            </div>
-          </li>
-          <li className="table-item basis-[100%]">
-            <div className="flex gap-[20px] justify-between">
-              <p className="hour-interval bg-slate-200 px-[10px] py-[6px] basis-[25%] flex items-center">
-                10:00-10:45
-              </p>
-              <p className="topic-name bg-slate-200 px-[10px] py-[6px] basis-[75%]">
-                Object Oriented Programming
-              </p>
-            </div>
-          </li>
-          <li className="table-item basis-[100%]">
-            <div className="flex gap-[20px] justify-between">
-              <p className="hour-interval bg-slate-100 px-[10px] py-[6px] basis-[25%] flex items-center">
-                {/* 10:00-10:45 */}
                 <input
                   type="text"
                   className="bg-slate-100 w-full text-center outline-none border-none"
                 />
               </p>
               <p className="topic-name bg-slate-100 px-[10px] py-[6px] basis-[75%]">
-                {/* Object Oriented Programming */}
-                {/* <input type="text" className="bg-slate-100 w-full outline-none border-none">Salam necesen <br/></input> */}
                 <textarea
-                  id="myTextarea"
                   rows="4"
                   cols="50"
-                  className="bg-slate-100 h-[25px] w-full border-none outline-none border p-2 min-h-16"
-                ></textarea>
+                  className="resize-none bg-slate-100 h-[25px] w-full border-none outline-none"
+                />
+              </p>
+            </div>
+          </li>
+          <li className="table-item basis-[100%]">
+            <div className="flex gap-[20px] justify-between">
+              <p className="hour-interval bg-slate-200 px-[10px] py-[6px] basis-[25%] flex items-center">
+                <input
+                  type="text"
+                  className="bg-slate-200 w-full text-center outline-none border-none"
+                />
+              </p>
+              <p className="topic-name bg-slate-200 px-[10px] py-[6px] basis-[75%]">
+                <textarea
+                  rows="4"
+                  cols="50"
+                  className="resize-none bg-slate-200 h-[25px] w-full border-none outline-none"
+                />
+              </p>
+            </div>
+          </li>
+          <li className="table-item basis-[100%]">
+            <div className="flex gap-[20px] justify-between">
+              <p className="hour-interval bg-slate-100 px-[10px] py-[6px] basis-[25%] flex items-center">
+                <input
+                  type="text"
+                  className="bg-slate-100 w-full text-center outline-none border-none"
+                />
+              </p>
+              <p className="topic-name bg-slate-100 px-[10px] py-[6px] basis-[75%]">
+                <textarea
+                  rows="4"
+                  cols="50"
+                  className="resize-none bg-slate-100 h-[25px] w-full border-none outline-none"
+                />
+              </p>
+            </div>
+          </li>
+          <li className="table-item basis-[100%]">
+            <div className="flex gap-[20px] justify-between">
+              <p className="hour-interval bg-slate-200 px-[10px] py-[6px] basis-[25%] flex items-center">
+                <input
+                  type="text"
+                  className="bg-slate-200 w-full text-center outline-none border-none"
+                />
+              </p>
+              <p className="topic-name bg-slate-200 px-[10px] py-[6px] basis-[75%]">
+                <textarea
+                  rows="4"
+                  cols="50"
+                  className="resize-none bg-slate-200 h-[25px] w-full border-none outline-none"
+                />
+              </p>
+            </div>
+          </li>
+          <li className="table-item basis-[100%]">
+            <div className="flex gap-[20px] justify-between">
+              <p className="hour-interval bg-slate-100 px-[10px] py-[6px] basis-[25%] flex items-center">
+                <input
+                  type="text"
+                  className="bg-slate-100 w-full text-center outline-none border-none"
+                />
+              </p>
+              <p className="topic-name bg-slate-100 px-[10px] py-[6px] basis-[75%]">
+                <textarea
+                  rows="4"
+                  cols="50"
+                  className="resize-none bg-slate-100 h-[25px] w-full border-none outline-none"
+                />
               </p>
             </div>
           </li>
         </ul>
-        <div className="module-name bg-[#F9A820] flex items-center basis-[5%]">
-          <p className="name rotate-90 w-[60.5px] text-center">Phyton</p>
+        <div className="module-name flex basis-[5%] gap-5">
+          <div className="w-[15px] bg-[#F9A820]"></div>
+          <p className="name w-[60.5px] self-center">
+            <input
+              type="text"
+              className="bg-white w-full text-center outline-none border-none"
+              placeholder="Module"
+            />
+          </p>
         </div>
       </div>
     </>
