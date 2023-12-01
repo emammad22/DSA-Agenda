@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Day from "../Table/Day";
 import CaseStudy from "../Table/CaseStudy";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 
 export default function AgendaPdf() {
-  const [days, setDays] = useState([]);
+  const componentRef = useRef(null);
+  const [componentHeight, setComponentHeight] = useState(0);
   const agendaRef = useRef();
+  useEffect(() => {
+    if (componentRef.current) {
+      setComponentHeight(
+        componentRef.current.getBoundingClientRect().height
+      );
+    }
+    console.log(componentHeight);
+  }, [componentRef.current?.getBoundingClientRect().height]);
 
   const colors = [
     { modulest: "#ecbe1d", modulend: "#d5215b" },
@@ -17,19 +26,15 @@ export default function AgendaPdf() {
   const downloadPdf = useReactToPrint({
     content: () => agendaRef.current,
   });
-  useEffect(() => {
-    const days = localStorage.getItem("formData");
-    setDays(JSON.parse(days));
-  }, [localStorage.getItem("formData")]);
 
   return (
-    <div className="m-auto mt-6 flex flex-col gap-[20px]">
-      <div className="flex flex-col items-center gap-[20px]">
-        <div
-          className="overflow-hidden flex flex-col gap-6"
-          ref={agendaRef}
-        >
-          <div className="week w-[900px] flex flex-col items-center">
+    <div className="m-auto mt-6 flex flex-col gap-[1px]">
+      <div className="flex flex-col items-center gap-[1px]">
+        <div className="overflow-hidden flex flex-col gap-1" ref={agendaRef}>
+          <div
+            className="week w-[900px] h-[1400px] pt-32 flex flex-col items-center gap-6"
+            ref={componentRef}
+          >
             <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
               <input
                 type="text"
@@ -37,13 +42,10 @@ export default function AgendaPdf() {
                 className="rounded-[7px] outline-none border-none px-[5px] py-2 text-[20px] text-center"
               />
             </h2>
-            {/* {days?.map((day) => {
-              return <Day day={day} />;
-            })} */}
             <Day modColor={colors[0]} />
             <Day modColor={colors[1]} />
           </div>
-          <div className="w-[900px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5">
+          <div className="w-[900px] h-[1400px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5">
             <h2>
               <input
                 type="text"
@@ -66,6 +68,16 @@ export default function AgendaPdf() {
           Download
         </button>
       </div>
+
+      <style>
+        {`
+          @media print {
+            @page {
+              size: 238mm 372mm;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }

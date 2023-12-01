@@ -19,14 +19,19 @@
   width: 0;
 }
 
-@media print {
+/* @media print {
   .week {
     height: auto !important;
   }
-}
+} */
 
-@media print {
+/* @media print {
   @page {
-    size: 240mm 350mm;
+    size: 300mm 390mm;
   }
 }
+
+@page {
+  size: auto;
+  /* margin: 20mm; */
+/* } */ 

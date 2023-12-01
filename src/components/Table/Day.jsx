@@ -3,7 +3,7 @@ import Module from "./Module";
 
 export default function Day({ modColor }) {
   return (
-    <div className="day w-[700px] px-[20px] py-[20px] basis-[45%] flex flex-col gap-6">
+    <div className="day w-[700px] px-[10px] py-[10px] flex flex-col gap-1">
       <div className="day-head text-center font-bold text-[20px]">
         <input
           placeholder="Enter date"
@@ -11,7 +11,7 @@ export default function Day({ modColor }) {
         />
       </div>
 
-      <div className="table-container bg-white px-7 py-7">
+      <div className="table-container  bg-white px-7 py-7">
         <div className="tables flex flex-col">
           <Module clr = {modColor.modulest} />
           <div className="lunch flex basis-[95%]">
