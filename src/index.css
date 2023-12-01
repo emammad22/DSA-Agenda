@@ -2,14 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  *{
-    font-family: 'Lato', sans-serif;
+@layer base {
+  * {
+    font-family: "Lato", sans-serif;
   }
 
-  .week{
-    background-image: url(./assets/agenda.png);
+  .week {
+    background-image: url(./assets/agenda-back.png);
+    background-size: 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
 }
+
+#topic::-webkit-scrollbar{
+  width: 0;
+}
+
+/* @media print {
+  .week {
+    height: auto !important;
+  }
+} */
+
+/* @media print {
+  @page {
+    size: 300mm 390mm;
+  }
+}
+
+@page {
+  size: auto;
+  /* margin: 20mm; */
+/* } */ 
