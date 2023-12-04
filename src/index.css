@@ -18,20 +18,3 @@
 #topic::-webkit-scrollbar{
   width: 0;
 }
-
-/* @media print {
-  .week {
-    height: auto !important;
-  }
-} */
-
-/* @media print {
-  @page {
-    size: 300mm 390mm;
-  }
-}
-
-@page {
-  size: auto;
-  /* margin: 20mm; */
-/* } */ 

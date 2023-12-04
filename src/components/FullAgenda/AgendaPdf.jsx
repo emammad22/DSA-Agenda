@@ -3,6 +3,7 @@ import Day from "../Table/Day";
 import CaseStudy from "../Table/CaseStudy";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
+import logo from '../../assets/dsa-logo.png'
 
 export default function AgendaPdf() {
   const componentRef = useRef(null);
@@ -32,7 +33,7 @@ export default function AgendaPdf() {
       <div className="flex flex-col items-center gap-[1px]">
         <div className="overflow-hidden flex flex-col gap-1" ref={agendaRef}>
           <div
-            className="week w-[900px] h-[1400px] pt-32 flex flex-col items-center gap-6"
+            className="week w-[900px] h-[1400px] pt-32 flex flex-col items-center gap-6 bg-[#7dcdc4]"
             ref={componentRef}
           >
             <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
@@ -45,7 +46,7 @@ export default function AgendaPdf() {
             <Day modColor={colors[0]} />
             <Day modColor={colors[1]} />
           </div>
-          <div className="w-[900px] h-[1400px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5">
+          <div className="w-[900px] h-[1400px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5 relative">
             <h2>
               <input
                 type="text"
@@ -56,6 +57,18 @@ export default function AgendaPdf() {
             <div className="case-study-inner flex flex-col gap-7">
               <CaseStudy />
               <CaseStudy />
+            </div>
+            <div className="case-footer absolute left-5 bottom-5">
+              <div className="footer-inner flex gap-[130px] items-center justify-between">
+                <div className="case-logo">
+                  <img src={logo} alt="dsa-logo" className="w-[120px]" />
+                </div>
+                <div className="case-info flex text-xs text-[white] gap-4">
+                  <p className="dsa-link">www.dsa.az </p>
+                  <p className="dsa-privacy">Bütün hüquqlar qorunur</p>
+                  <p className="dsa-name">DATA SCIENCE ACADEMY</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
