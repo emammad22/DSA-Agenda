@@ -1,28 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 
 export default function Module({ clr }) {
-  const [topicHeights, setTopicHeights] = useState([18, 18, 18, 18, 18]);
+  const [topicHeights, setTopicHeights] = useState([
+    "18px",
+    "18px",
+    "18px",
+    "18px",
+    "18px",
+  ]);
 
-  useEffect(() => {
-    let topic = document.getElementById("topic");
-    topic.addEventListener("input", handleTopicHeight);
-    return () => {
-      topic.removeEventListener("input", handleTopicHeight);
-    };
-  }, []);
 
   const handleTopicHeight = (index, e) => {
-    const newHeight = [...topicHeights];
-    newHeight[index] = e.target.scrollHeight;
-    setTopicHeights(newHeight);
+    const textarea = e.target;
+    textarea.style.height = "1px"; // Set a temporary height
+    textarea.style.height = `${textarea.scrollHeight}px`;
+    // const newHeight = [...topicHeights];
+    // newHeight[index] = "auto";
+    // newHeight[index] = `${e.target.scrollHeight}px`;
+    // setTopicHeights(newHeight);
   };
+
   return (
     <>
       <div className="flex">
         <ul className="module-container basis-[80%] self-center">
-          {[1, 2, 3, 4, 5].map((_,index) => {
+          {[1, 2, 3, 4, 5].map((_, index) => {
+            const textareaId = `topic-${index}`;
             return (
-              <li className="table-item basis-[100%]">
+              <li key={index} className="table-item basis-[100%]">
                 <div className="flex gap-[20px] justify-between">
                   <p
                     className={`hour-interval ${
@@ -42,14 +47,14 @@ export default function Module({ clr }) {
                     } px-[10px] py-[6px] basis-[75%]`}
                   >
                     <textarea
-                      id="topic"
+                      id={textareaId}
                       rows="4"
                       cols="50"
                       className={`resize-none ${
                         index % 2 === 0 ? "bg-slate-100" : "bg-slate-200"
                       } w-full border-none outline-none text-[14px]`}
-                      style={{ height: `${topicHeights[index]}px` }}
-                      onChange={(e) => handleTopicHeight(index, e)}
+                      style={{ height: `${topicHeights[index]}` }}
+                      onInput={(e) => handleTopicHeight(index, e)}
                     />
                   </p>
                 </div>
