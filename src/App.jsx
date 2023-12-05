@@ -8,8 +8,8 @@ export default function App() {
     <>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/week-agenda" element={<AgendaPdf />} />
+          <Route path="/" element={<AgendaPdf />} />
+          {/* <Route path="/week-agenda" element={} /> */}
         </Route>
       </Routes>
     </>
