@@ -52,7 +52,7 @@ export default function Module({ clr, data }) {
                       cols="50"
                       className={`resize-none ${
                         index % 2 === 0 ? "bg-slate-100" : "bg-slate-200"
-                      } w-full border-none outline-none text-[14px]`}
+                      } w-full border-none outline-none text-[12px]`}
                       style={{ height: `${topicHeights[index]}` }}
                       onInput={(e) => handleTopicHeight(index, e)}
                     />

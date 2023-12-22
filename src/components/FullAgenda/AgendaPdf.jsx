@@ -31,14 +31,14 @@ export default function AgendaPdf() {
       <div className="flex flex-col items-center gap-[1px]">
         <div className="overflow-hidden flex flex-col gap-1" ref={agendaRef}>
           <div
-            className="week w-[900px] h-[1400px] pt-32 relative flex flex-col items-center gap-6 bg-[#7dcdc4]"
+            className="week w-[900px] h-[1400px] pt-8 relative flex flex-col items-center gap-6 bg-[#7dcdc4]"
             ref={componentRef}
           >
             <h2 className="text-center font-bold text-[30px] text-[#1F3751]">
               <input
                 type="text"
                 placeholder="Enter Week"
-                className="rounded-[7px] outline-none border-none px-[5px] py-2 text-[20px] text-center"
+                className="rounded-[7px] outline-none border-none px-[5px] py-2 text-[18px] text-center"
               />
             </h2>
             <div className="day-container flex flex-col">
