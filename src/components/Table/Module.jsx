@@ -1,6 +1,6 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 
-export default function Module({ clr }) {
+export default function Module({ clr, data }) {
   const [topicHeights, setTopicHeights] = useState([
     "18px",
     "18px",
@@ -8,7 +8,6 @@ export default function Module({ clr }) {
     "18px",
     "18px",
   ]);
-
 
   const handleTopicHeight = (index, e) => {
     const textarea = e.target;
@@ -24,7 +23,7 @@ export default function Module({ clr }) {
     <>
       <div className="flex">
         <ul className="module-container basis-[80%] self-center">
-          {[1, 2, 3, 4, 5].map((_, index) => {
+          {data.map((time, index) => {
             const textareaId = `topic-${index}`;
             return (
               <li key={index} className="table-item basis-[100%]">
@@ -36,6 +35,7 @@ export default function Module({ clr }) {
                   >
                     <input
                       type="text"
+                      value={time}
                       className={`${
                         index % 2 === 0 ? "bg-slate-100" : "bg-slate-200"
                       } w-full text-center outline-none border-none`}
@@ -61,6 +61,7 @@ export default function Module({ clr }) {
               </li>
             );
           })}
+          
         </ul>
         <div className="module-name flex basis-[5%] gap-5">
           <div className="w-[15px]" style={{ background: `${clr}` }}></div>
