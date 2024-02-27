@@ -1,9 +1,11 @@
 import { useReactToPrint } from "react-to-print";
 import logo from "../../assets/dsa-logo.png";
 import CaseStudy from "../Table/CaseStudy";
+import { useRef } from "react";
 
 
 export default function Final() {
+    const agendaRef = useRef();
 
 
     // React to print library
@@ -14,7 +16,7 @@ export default function Final() {
     return (
         <div className="m-auto mt-6 flex flex-col gap-[1px]">
             <div className="flex flex-col items-center gap-[1px]">
-                <div className="overflow-hidden flex flex-col gap-1" >
+                <div className="overflow-hidden flex flex-col gap-1"  ref={agendaRef}>
 
 
 
@@ -25,8 +27,8 @@ export default function Final() {
 
 
 
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
@@ -38,8 +40,8 @@ export default function Final() {
                             </div>
                         </div>
 
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
@@ -50,8 +52,8 @@ export default function Final() {
                                 </div>
                             </div>
                         </div>
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
@@ -62,8 +64,8 @@ export default function Final() {
                                 </div>
                             </div>
                         </div>
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />

@@ -29,6 +29,7 @@ export default function AgendaPdf() {
   return (
     <div className="m-auto mt-6 flex flex-col gap-[1px]">
       <div className="flex flex-col items-center gap-[1px]">
+        
         <div className="overflow-hidden flex flex-col gap-1" ref={agendaRef}>
           <div
             className="week w-[900px] h-[1400px] pt-8 relative flex flex-col items-center gap-6 bg-[#7dcdc4]"
@@ -84,6 +85,7 @@ export default function AgendaPdf() {
             </div>
           </div> */}
         </div>
+
       </div>
       <div className="download-container self-center">
         <button
