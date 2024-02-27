@@ -6,6 +6,7 @@ import AgendaPdf from "./components/FullAgenda/AgendaPdf";
 export default function App() {
   return (
     <>
+    console.log(1)
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<AgendaPdf />} />
