@@ -25,8 +25,8 @@ export default function Final() {
 
 
 
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
@@ -38,8 +38,8 @@ export default function Final() {
                             </div>
                         </div>
 
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
@@ -50,8 +50,8 @@ export default function Final() {
                                 </div>
                             </div>
                         </div>
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
@@ -62,8 +62,8 @@ export default function Final() {
                                 </div>
                             </div>
                         </div>
-                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 pl-8 text-center w-5/6">
-                            <div className=" flex  flex-col justify-between w-9/12 ">
+                        <div className="case-study-inner flex flex-col gap-7 bg-white h-fit py-3 px-8 text-center w-5/6">
+                            <div className=" flex  flex-col justify-between w-full ">
                                 <input type="text" className="focus:outline-none text-center  text-2xl mb-1" placeholder='DATE' />
                                 <div className="flex justify-between ">
                                     <input className=" bg-slate-200 text-center focus:outline-none" />

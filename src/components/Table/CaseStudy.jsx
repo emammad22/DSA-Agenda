@@ -28,22 +28,29 @@ export default function CaseStudy() {
               </p>
             </div>
           </li>
+
+
           <li className="case-item">
             <div className="flex gap-5 w-full">
-              {/* <p className="case-hour py-1 px-3 bg-slate-100 basis-[25%] flex justify-center items-center"> */}
+              <p className="case-hour py-1 px-3 bg-slate-100  flex justify-center items-center">
               <input
                 type="text"
-                className="border-none outline-none basis-[25%] py-1 px-3 bg-slate-100 text-center"
+                className="bg-slate-100 outline-none border-none  placeholder-black"
+                placeholder="10 minutes"
+
               />
-              {/* </p> */}
-              {/* <p className="case-topi px-3 bg-slate-100 basis-[75%] flex items-center"> */}
+              </p>
+              <p className="case-topi px-3 bg-slate-100 basis-[75%] flex items-center">
               <input
                 type="text"
-                className="bg-slate-100 outline-none border-none bais-[75%] px-3 w-full"
+                className="bg-slate-100 outline-none border-none  px-3 w-full placeholder-black"
+                placeholder="Coffee break"
               />
-              {/* </p> */}
+              </p>
             </div>
           </li>
+
+
           <li className="case-item">
             <div className="flex gap-5 w-full">
               <p className="case-hour px-3 bg-slate-300 basis-[25%] flex justify-center items-center">
