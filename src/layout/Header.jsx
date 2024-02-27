@@ -15,17 +15,21 @@ export default function Header() {
             </Link>
             <div className="header-nav">
               <ul className="nav flex gap-[20px]">
-                {/* <Link to="/week-agenda"> */}
+                <Link to="/">
                   <li className="nav-item text-[18px] cursor-pointer font-light">
                     Week
                   </li>
-                {/* </Link> */}
-                <li className="nav-item text-[18px] cursor-pointer font-light">
-                  Midterm
-                </li>
-                <li className="nav-item text-[18px] cursor-pointer font-light">
-                  Others
-                </li>
+                </Link>
+                <Link to='/midterm'>
+                  <li className="nav-item text-[18px] cursor-pointer font-light">
+                    Midterm
+                  </li>
+                </Link>
+                <Link to='/final'>
+                  <li className="nav-item text-[18px] cursor-pointer font-light">
+                    Final
+                  </li>
+                </Link>
               </ul>
             </div>
           </div>
