@@ -6,6 +6,7 @@ import { useRef } from "react";
 import logo from "../../assets/dsa-logo.png";
 
 export default function AgendaPdf() {
+  console.log(1)
   const componentRef = useRef(null);
   const [componentHeight, setComponentHeight] = useState(0);
   const agendaRef = useRef();
