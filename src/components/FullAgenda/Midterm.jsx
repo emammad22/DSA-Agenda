@@ -1,9 +1,11 @@
 import { useReactToPrint } from "react-to-print";
 import logo from "../../assets/dsa-logo.png";
 import CaseStudy from "../Table/CaseStudy";
+import { useRef } from "react";
 
 
 export default function Midterm() {
+  const agendaRef = useRef();
 
 
     // React to print library
@@ -14,7 +16,7 @@ export default function Midterm() {
     return (
         <div className="m-auto mt-6 flex flex-col gap-[1px] items-center ">
             <div className="flex flex-col items-center justify-center gap-[1px] ">
-                <div className="overflow-hidden flex flex-col gap-1" >
+                <div className="overflow-hidden flex flex-col gap-1"  ref={agendaRef}>
 
 
 
