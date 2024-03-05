@@ -59,7 +59,7 @@ export default function AgendaPdf() {
               </div>
             </div>
           </div>
-          {/* <div className="w-[900px] h-[1400px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5 relative">
+          <div className="w-[900px] h-[1400px] bg-[#7dcdc4] flex flex-col gap-5 items-center py-5 relative">
             <h2>
               <input
                 type="text"
@@ -83,7 +83,7 @@ export default function AgendaPdf() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
 
       </div>
