@@ -36,7 +36,7 @@ export default function CaseStudy() {
               <input
                 type="text"
                 className="bg-slate-100 outline-none border-none  placeholder-black"
-                placeholder="10 minutes"
+                placeholder="15 minutes"
 
               />
               </p>
