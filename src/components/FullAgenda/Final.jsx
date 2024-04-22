@@ -16,7 +16,7 @@ export default function Final() {
     return (
         <div className="m-auto mt-6 flex flex-col gap-[1px]">
             <div className="flex flex-col items-center gap-[1px]">
-                <div className="overflow-hidden flex flex-col gap-1"  ref={agendaRef}>
+                <div className="overflow-hidden flex flex-col gap-1" ref={agendaRef}>
 
 
 
@@ -34,7 +34,18 @@ export default function Final() {
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
                                     <div className="flex w-full">
                                         <input className="bg-slate-200 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#ecbe1d] w-4 h-full"></div>
-
+                                    </div>
+                                </div>
+                                <div className="flex justify-between ">
+                                    <input value='15 minutes' className=" bg-slate-100 text-center focus:outline-none" />
+                                    <div className="flex w-full">
+                                        <input value='Coffee Break' className="bg-slate-100 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#ecbe1d] w-4 h-full"></div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-between ">
+                                    <input className=" bg-slate-200 text-center focus:outline-none" />
+                                    <div className="flex w-full">
+                                        <input className="bg-slate-200 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#ecbe1d] w-4 h-full"></div>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +58,18 @@ export default function Final() {
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
                                     <div className="flex w-full">
                                         <input className="bg-slate-200 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#d5215b] w-4 h-full"></div>
-
+                                    </div>
+                                </div>
+                                <div className="flex justify-between ">
+                                    <input value='15 minutes' className=" bg-slate-100 text-center focus:outline-none" />
+                                    <div className="flex w-full">
+                                        <input value='Coffee Break' className="bg-slate-100 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#d5215b] w-4 h-full"></div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-between ">
+                                    <input className=" bg-slate-200 text-center focus:outline-none" />
+                                    <div className="flex w-full">
+                                        <input className="bg-slate-200 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#d5215b] w-4 h-full"></div>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +81,6 @@ export default function Final() {
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
                                     <div className="flex w-full">
                                         <input className="bg-slate-200 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#22afa2] w-4 h-full"></div>
-
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +92,6 @@ export default function Final() {
                                     <input className=" bg-slate-200 text-center focus:outline-none" />
                                     <div className="flex w-full">
                                         <input className="bg-slate-200 flex justify-between ml-3 w-full focus:outline-none pl-3 py-1" /> <div className="bg-[#ecbe1d] w-4 h-full"></div>
-
                                     </div>
                                 </div>
                             </div>
