@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import AgendaPdf from "./components/FullAgenda/AgendaPdf";
 import Midterm from "./components/FullAgenda/Midterm";
 import Final from "./components/FullAgenda/Final";
+import Career from "./components/FullAgenda/Career";
 export default function App() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<AgendaPdf />} />
           <Route path="/midterm" element={<Midterm />} />
           <Route path="/final" element={<Final />} />
+          <Route path="/career" element={<Career />} />
 
 
           {/* <Route path="/week-agenda" element={} /> */}

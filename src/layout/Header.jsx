@@ -29,6 +29,11 @@ export default function Header() {
                   <li className="nav-item text-[18px] cursor-pointer font-light">
                     Final
                   </li>
+                </Link> 
+                <Link to='/career'>
+                  <li className="nav-item text-[18px] cursor-pointer font-light">
+                    Career
+                  </li>
                 </Link>
               </ul>
             </div>
