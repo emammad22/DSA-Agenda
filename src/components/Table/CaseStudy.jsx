@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CaseStudy() {
+export default function CaseStudy({minute}) {
   return (
     <div className="case-first  bg-white  p-6 flex flex-col items-center gap-3">
       <h3 className="date-case rounded-lg">
@@ -36,8 +36,7 @@ export default function CaseStudy() {
               <input
                 type="text"
                 className="bg-slate-100 outline-none border-none  placeholder-black"
-                placeholder="10 minutes"
-
+                placeholder={minute}
               />
               </p>
               <p className="case-topi px-3 bg-slate-100 basis-[75%] flex items-center">

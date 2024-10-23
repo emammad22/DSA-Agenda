@@ -68,8 +68,8 @@ export default function AgendaPdf() {
               />
             </h2>
             <div className="case-study-inner flex flex-col gap-7">
-              <CaseStudy />
-              <CaseStudy />
+              <CaseStudy minute={'10 minutes'} />
+              <CaseStudy minute={'10 minutes'} />
             </div>
             <div className="case-footer absolute left-8 bottom-8">
               <div className="footer-inner flex gap-[130px] items-center justify-between">
